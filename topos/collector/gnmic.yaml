@@ -1,0 +1,35 @@
+username: admin
+password: NokiaSrl1!
+skip-verify: true
+
+targets:
+  clab-nanog87-leaf1:
+  clab-nanog87-leaf2:
+  clab-nanog87-spine1:
+
+subscriptions:
+  sub1:
+    paths:
+      - /interface/statistics
+    encoding: ascii
+
+outputs:
+  prom-output:
+    type: prometheus
+    listen: "clab-nanog87-gnmic:9804"
+    service-registration:
+      address: clab-nanog87-consul-agent:8500
+    event-processors:
+      - filtering-stats
+
+processors:
+  filtering-stats:
+    event-delete:
+      value-names:
+        - ".*multicast.*"
+        - ".*broadcast.*"
+        - ".*carrier-transitions.*"
+        - ".*unicast.*"
+        - ".*error.*"
+        - ".*discarded.*"
+        - ".*mirror.*"

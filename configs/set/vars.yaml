@@ -1,0 +1,54 @@
+clab-nanog87-spine1:
+  interfaces:
+    - name: ethernet-1/1
+      admin_state: enable
+      description: to_leaf1_1/1
+      subinterface:
+        - admin_state: enable
+          ipv4_address: 1.1.1.1/31
+
+    - name: ethernet-1/2
+      admin_state: enable
+      description: to_leaf2_1/1
+      subinterface:
+        - admin_state: enable
+          ipv4_address: 1.1.2.1/31
+
+    - name: lo0
+      admin_state: enable
+      description: loopback0
+      subinterface:
+        - admin_state: enable
+          ipv4_address: 20.1.1.1/32
+
+clab-nanog87-leaf1:
+  interfaces:
+    - name: ethernet-1/1
+      admin_state: enable
+      description: to_spine11_1/3
+      subinterface:
+        - admin_state: enable
+          ipv4_address: 1.1.1.0/31
+
+    - name: lo0
+      admin_state: enable
+      description: loopback0
+      subinterface:
+        - admin_state: enable
+          ipv4_address: 10.1.1.1/32
+
+clab-nanog87-leaf2:
+  interfaces:
+    - name: ethernet-1/1
+      admin_state: enable
+      description: to_spine11_1/4
+      subinterface:
+        - admin_state: enable
+          ipv4_address: 1.1.2.0/31
+
+    - name: lo0
+      admin_state: enable
+      description: loopback0
+      subinterface:
+        - admin_state: enable
+          ipv4_address: 10.2.1.1/32

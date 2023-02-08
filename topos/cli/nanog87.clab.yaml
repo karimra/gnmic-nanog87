@@ -1,0 +1,14 @@
+name: nanog87
+
+topology:
+  defaults:
+    kind: srl
+    image: ghcr.io/nokia/srlinux:latest
+  nodes:
+    leaf1:
+    leaf2:
+    spine1:
+  links:
+    - endpoints: ["leaf1:e1-1", "spine1:e1-1"]
+    - endpoints: ["leaf2:e1-1", "spine1:e1-2"]
+        

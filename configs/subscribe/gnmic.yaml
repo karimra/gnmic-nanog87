@@ -1,0 +1,15 @@
+username: admin
+password: NokiaSrl1!
+skip-verify: true
+
+subscriptions:
+  sub1:
+    paths:
+      - interface[name=ethernet-1/1]/statistics
+    encoding: json_ietf
+    sample-interval: 10s
+  sub2:
+    paths:
+      - interface[name=ethernet-1/2]/statistics
+    encoding: json_ietf
+    sample-interval: 10s
